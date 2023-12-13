@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<title>Ram Maheshwari</title>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body{
+                box-sizing: border-box;
+                position:relative;
+
+            }
+            .header_content{
+                padding: 15px;
+                display:flex;
+                justify-content:space-between;             
+
+            }
+            .header{
+                width:100%;
+                position:fixed;
+                z-index:1000;
+                box-shadow: 0 10px 52px rgb(0 0 0 / 10%);
+                background-color: white;
+
+            }
+            .logo-image{
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+                height:100%;
+            }
+            .header-logo-content{
+               
+                display:flex;
+                align-items:center;
+            }
+            .header-logo-image{
+                background-color: yellow;
+                border-radius: 50%;
+                width:50px;
+                height: 50px;
+                display:block;
+                margin-right:10px;
+            }
+            .header__logo-sub{
+                font-size: 20px;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing:1px;
+
+            }
+            .menu-link{
+                display:flex;
+                list-style-type: disc;
+            }
+            .menu-link li{
+                list-style: none;
+                padding-left: 20px;
+                padding-right:50px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .header__main-ham-menu-cont{
+                display:none;
+
+            }
+            .class_menu{
+                align-items: center;
+                display:block;
+            }
+            .ham_menu{
+                display: none;
+                background-color: aqua;
+            }
+            .ham_menu li{
+                list-style: none;
+                display:flex;
+            }
+            @media only screen and (max-width: 37.5em){
+                .menu-link{
+                    display:none;
+                }
+            }
+            @media only screen and (max-width: 37.5em)
+            {
+            .header__main-ham-menu-cont{
+                display:block;
+                width:100%;
+                padding:20px;
+            }
+        }
+        .sec-pad{
+            padding:120px 0px;
+        }
+        .home-section{
+                color:black;
+               /* background-image: url('https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg');*/
+                background-image: linear-gradient(to right,rgba(245,245,245,0.8),rgba(245,245,245,0.8)),url(https://d33wubrfki0l68.cloudfront.net/daac8858fd4a0ccea44f59dfd079c3c16c263f33/c157c/assets/svg/common-bg.svg);
+                min-height:700px;
+                background-position: center;
+                position: relative;
+                
+            }
+            .home-section-content{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                text-align:center;
+                max-width: 900px;
+                width:90%;
+
+            }
+            .home-heading{
+                font-size: 50px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing:3px;
+                text-align:center;
+
+            }
+            .home-info{
+                margin:30px auto 0px auto;
+                max-width:800px;
+            }
+            .info-text{
+                color:black;
+                text-align:center;
+                font-size:20px;
+                width:100%;
+                line-height:1.6;
+            }
+            .home-btn{
+                margin-top:50px;
+                text-align:center;
+            }
+            .btn--bg{
+                background-color: #facf0f;
+                padding:15px 90px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                border-radius:5px;
+                font-size:20px;
+                text-decoration: none;
+                color:black;
+                font-weight: bold;
+            }
+            .home-social{
+                top:50%;
+                background-color: white;
+                padding: 10px;
+                box-shadow:0 7px 28px 0 rgb(0 0 0 0.2);
+                transform:translateY(-50%);
+                position:absolute;
+                border-radius: 5px;
+            }
+            .social-link{
+                width:35px;
+                padding-bottom: 10px;
+            }
+            .about-section{
+                background: #fafafa;
+
+            }
+            .about-head{
+                position:relative;
+                text-align:center;
+                text-transform: uppercase;
+                font-size: 40px;
+                font-weight: bold;
+                margin-bottom: 50px;
+                display: block;
+            }
+            .about-container{
+                width:92%;
+                max-width: 1200px;
+                margin:auto;
+            }
+            .about-heading{
+                margin-bottom: 50px;
+                text-align: center;
+            }
+            .about-sub-head{
+                display:block;
+                text-align: center;
+                font-size: 20px;
+                color:grey;
+                margin:auto;
+                max-width:850px;
+                font-weight: 500;
+
+
+            }
+            .about-content{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 200px;
+            }
+            .about-title{
+                font-weight: 700px;
+                font-size: 25px;
+                margin-bottom: 30px;
+
+            }
+            .about-para{
+                font-size:20px;
+                color:#666;
+                margin-bottom:50px;
+                line-height:1.7;
+                max-width:600px;
+            }
+            .btn--theme {
+                background: #facf0f;
+                color:black;
+                padding:15px 50px;
+                font-size:15px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: bold;
+            }
+            .skill-head{
+                font-weight:700;
+                font-size:28px;
+                margin-bottom: 30px;
+            }
+            .skill-set{
+                display:flex;
+                flex-wrap:wrap;
+            }
+            .skills-skill{
+                background: rgba(153,153,153,.2);
+                padding:10px 20px;
+                margin-right:10px;
+                margin-bottom: 10px;
+                font-size:18px;
+                font-weight:600;
+                color:#666;
+                border-radius:5px;
+            }
+            .project-row{
+                display:grid;
+                grid-template-columns: 1.5fr 1fr;
+                margin-bottom: 40px;
+                grid-gap: 20px;
+            }
+            .project-pic{
+                width:100%;
+            }
+            .project-grid{
+                overflow:hidden;
+            }
+            .project-row-content{
+                display:flex;
+                flex-direction: column;
+                align-content: flex-start;
+                padding:10px 0;
+
+            }
+            .project-title{
+                font-size:30px;
+                font-weight:600;
+                margin-bottom: 20px;
+            }
+            .project-detail{
+                font-size:20px;
+                color:#666;
+                margin-bottom:50px;
+                line-height:1.7;
+                max-width:600px;
+
+            }
+            .ctc-text{
+                color:black;
+                text-align:center;
+                font-size:20px;
+                width:100%;
+                line-height:1.6;
+
+            }
+            .contact-form-feild{
+                margin-bottom:40px;
+            }
+            .contact-form-label{
+                font-size:14px;
+                text-align:left;
+                margin-bottom:10px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                color:grey;
+                display:block;
+                
+            }
+            .contact-form-container{
+                max-width:800px;
+                background: white;
+                margin:50px auto 0 auto;
+                border-radius: 5px;
+                width: 95%;
+                box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
+                padding:40px;
+                text-align:right;
+                
+            }
+            .contact-form-input{
+                padding:20px;
+                background:#f0f0f0;
+                color:#333;
+                font-size:16px;
+                font-weight:600;
+                border-radius: 5px;
+                border:1px solid #ebebeb;
+                width: 95%;
+                display:block;
+            }
+            .contact__btn{
+                width:30%;
+                border:none;
+                padding:20px 10px;
+            }
+            .main-footer{
+                background: black;
+                color:white;
+            }
+            .footer-upper{
+                display:flex;
+                justify-content: space-between;
+                padding:80px 0px;
+            }
+            .footer-container{
+                width:95%;
+                margin:auto;
+                max-width:1200px;
+            }
+            .footer-upper-row1{
+                order: 2;
+            }
+            .footer-social{
+                margin-top:20px;
+            }
+            .footer__icon{
+                width:25px;
+                margin-right:10px;
+            }
+            .footer-social a{
+                text-decoration:none;
+
+            }
+            .footer-upper-row2{
+                max-width: 500px;
+                order:1;
+                width:40%;
+            }
+            .footer-row2-desc{
+                margin-top:20px;
+                color:white;
+                font-size:15px;
+                line-height:1.6;
+
+
+            }
+            .footer__lower{
+                padding:40px 0;
+                border-top:1px solid white;
+                text-align:center;
+                font-size:12px;
+            }
+            .footer__lower a
+            {
+                color:white;
+                margin-left:2px;
+                font-weight:700;
+            }
+            .chat-btn{
+                border-radius:50%;
+                background: #facf0f;
+                width:65px;
+                height:65px;
+                position:fixed;
+                bottom: 50px;;
+            }
+            .chat-btn img{
+                width:41px;
+                height:41px;
+                padding-top:12px;
+
+            }
+            .chat-div{
+                width:50px;
+                float:right;
+
+            }
+            .chat-text{
+                background:white;
+                color:black;
+                background: white;
+                color: black;
+                margin-right: 54px;
+                position: fixed;
+                padding: 20px 35px;
+                right: 45px;
+                font-size:17px;
+                border-radius: 16px;
+                line-height: 17px;
+            }
+            @media only screen and (max-width: 56.25em){
+                
+                .project-row {
+                    grid-template-columns: 1fr;
+                    grid-gap: 2rem;
+                    margin-bottom: 8rem;
+}
+            }
+            @media only screen and (max-width: 56.25em){
+                .about-content{
+                    grid-template-columns: 1fr;
+                    grid-gap: 8rem;
+        }
+            }
+            @media only screen and (max-width: 56.25em){
+                .contact-form-container{
+                    width:80%;
+                    }
+            }
+            @media only screen and (max-width: 37.5em){ 
+                .footer-upper{
+                    display: block;
+                    }
+                    .footer-upper-row2 {
+                        width:100%;
+                    }
+            }
+
+
+
+        </style>
+
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_content">
+                    <div class="header-logo-content">
+                        <div class="header-logo-image">
+                            <img class="logo-image" src="https://d33wubrfki0l68.cloudfront.net/32c48e23e828c42a99a37db81e2a91d7c8eed4de/d134a/assets/png/ram-maheshwari.png" width="35px" height="35px">
+                        </div>
+                            <span class="header__logo-sub">Ram Maheshwari</span>
+                    </div>
+                    <div class="class_menu">
+                        <ul class="menu-link">
+                            <li class="menu_link_list">Home</li>
+                            <li class="menu_link_list">About</li>
+                            <li class="menu_link_list">Projects</li>
+                            <li class="menu_link_list">Contact</li>
+                        </ul>
+                        <div class="header__main-ham-menu-cont">
+                           <a class="ham-image"><img src="https://d33wubrfki0l68.cloudfront.net/79e75114856ae61628d2ad26504e3ff4ab2c71b6/f06a4/assets/svg/ham-menu.svg" alt="hamburger menu" class="header__main-ham-menu" ></a>
+                        </div>
+                    </div>
+            </div>
+            </header>
+            <section class="home-section">
+                <div class="home-section-content">
+                    <h1 class="home-heading">Hey, I'm Ram Maheshwari</h1>
+                    <div class="home-info">
+                        <p class="info-text">A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product</p>
+                    </div>
+                    <div class="home-btn">
+                        <a href="./#Projects" class="btn btn--bg">PROJECTS</a>
+                    </div>
+                </div>
+                <div class="home-social">
+                    <div class="social-link">
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <img src="https://d33wubrfki0l68.cloudfront.net/d8e6e1e636531e28274a1b8b6d947b817f6145bd/d42d3/assets/svg/linkedin-dark.svg" >
+                        </a>
+                    </div>
+                    <div class="social-link">
+                        <a href="https://twitter.com/" target="_blank">
+                            <img src="https://d33wubrfki0l68.cloudfront.net/ba3ef9fd9d500c55ba265adae6087ba71e05f5d9/d0067/assets/svg/twitter-dark.svg">
+                        </a>
+                    </div>
+                    <div class="social-link">
+                        <a href="" target="_blank">
+                            <img src="https://d33wubrfki0l68.cloudfront.net/7c95be3350552a5e9f2fc47f1bdbac118ea4dcee/f7a5e/assets/svg/yt-dark.svg">
+                        </a>
+                    </div>
+                    <div class="social-link">
+                        <a href="" target="_blank">
+                            <img src="https://d33wubrfki0l68.cloudfront.net/38469cf88d038b6ba3322c9fcb93a8f7167df4b9/cb0b9/assets/svg/github-dark.svg">
+                        </a>
+                        <div class="social-link">
+                            <a href="" target="_blank">
+                                <img src="https://d33wubrfki0l68.cloudfront.net/e978c8491d93813aa00b3dc80b9abfb0d64a9086/3c187/assets/svg/book-dark.svg">
+                            </a>
+                        </div>
+                    </div>
+                 </div>
+            </section>
+            <section id="about" class="about-section sec-pad">
+                <div class="about-container">
+                    <h2 class="about-heading">
+                        <span class="about-head">
+                            About Me
+                        </span>
+                        <span class="about-sub-head">
+                            Here you will find more information about me, what I do, and my current skills mostly in terms of programming and technology
+    
+                        </span>
+                    </h2>
+                    <div class="about-content">
+                        <div>
+                        <h3 class="about-title">
+                            Get to know me!
+                        </h3>
+                        <div class="about-para">
+                            <p>
+                                I'm a <strong>Frontend Web Developer</strong> building the Front-end of Websites and Web Applications that leads to the success of the overall product. Check out some of my work in the
+                                <strong>Projects</strong>sections.<br>
+                                I also like sharing content related to the stuff that I have learned over the years in <strong>>Web Development</strong> so it can help other people of the Dev Community. Feel free to Connect or Follow me on my Linkedin where I post useful content related to Web Development and Programming<br>
+                                    I'm open to Job opportunities where I can contribute, learn and grow. If you have a good opportunity that matches my skills and experience then don't hesitate to contact me.    
+                            </p>
+                        </div>
+                        <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr ">CONTACT</a>
+                        </div>
+                        <div class="skill-grid">
+                            <h3 class="skill-head">My Skills</h3>
+                            <div class="skill-set">
+                                <div class="skills-skill">HTML</div>
+                                <div class="skills-skill">CSS</div>
+                                <div class="skills-skill">JavaScript</div>
+                                <div class="skills-skill">React</div>
+                                <div class="skills-skill">GitHub</div>
+                                <div class="skills-skill">Java</div>
+                                <div class="skills-skill">Nodejs</div>
+                                <div class="skills-skill">SEO</div>
+                                <div class="skills-skill">GIT</div>
+
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <section id="projects" class="project-section sec-pad">
+                <div class="about-container">
+                    <h2 class="about-heading">
+                        <span class="about-head">
+                            PROJECTS
+                        </span>
+                        <span class="about-sub-head">
+                            Here you will find some of the personal and clients projects that I created with each project containing its own case study
+                        </span>
+                    </h2>
+                    <div class="project-content">
+                        <div class="project-row">
+                            <div class="project-grid">
+                                <img src="https://d33wubrfki0l68.cloudfront.net/19c708670a1f21231c1e2efa6ba38dbf52b15343/3237e/assets/jpeg/dopefolio.jpeg" class="project-pic">
+                            </div>
+                            <div class="project-row-content"> 
+                                <h3 class="project-title">Dopefolio</h3>
+                                <p class="project-detail">Dopefolio is a successful Open-Source project that I created which have been featured on some of the biggest tech sites like CSS-Tricks, Hostinger, etc & used by thousands of developers globally</p>
+                                <div>
+                                    <a href="" class="btn btn--med btn--theme dynamicBgClr ">CASE STUDY</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="project-row">
+                            <div class="project-grid">
+                                <img src="https://d33wubrfki0l68.cloudfront.net/9199afe42f789dbddb324ed3edd326e080e693c1/28f54/assets/jpeg/wilsonport.jpeg" class="project-pic">
+                            </div>
+                            <div class="project-row-content"> 
+                                <h3 class="project-title">Wilsonport</h3>
+                                <p class="project-detail">Wilsonport is a multiservice logistics and transport company and I created their website from scratch using the frontend tools I know.</p>
+                                <div>
+                                    <a href="" class="btn btn--med btn--theme dynamicBgClr ">CASE STUDY</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="project-row">
+                            <div class="project-grid">
+                                <img src="https://d33wubrfki0l68.cloudfront.net/61fc288f39a306e3130c72643480ce015dec48ae/e3272/assets/jpeg/boreal-coffee-clone.jpeg" class="project-pic">
+                            </div>
+                            <div class="project-row-content"> 
+                                <h3 class="project-title">Boreal Coffee Clone</h3>
+                                <p class="project-detail">I re-created the frontend of Boreal Coffee's official web app because I got attracted to their beautiful UI. It was a great experience for me to build the entire frontend.</p>
+                                <div>
+                                    <a href="" class="btn btn--med btn--theme dynamicBgClr ">CASE STUDY</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section id="contact" class="contact-section home-section sec-pad">
+                <div class="about-container">
+                    <h2 class="about-heading">
+                        <span class="about-head">
+                            CONTACT
+                        </span>
+                        <span class="about-sub-head ctc-text">
+                            Feel free to Contact me by submitting the form below and I will get back to you as soon as possible.
+                        </span>
+                    </h2>
+                    <div class="contact-form-container">
+                        <form action="#" class="contact-form" method="post">
+                            <input type="hidden" name="form-name" value="form1">
+                            <div class="contact-form-feild">
+                                <label class="contact-form-label" for="name">Name
+                                </label>
+                                <input class="contact-form-input" required placeholder="Enter Your Name" name="name" id="name" >
+                            </div>
+                            <div class="contact-form-feild">
+                                <label class="contact-form-label" for="email">Email
+                                </label>
+                                <input class="contact-form-input" required placeholder="Enter Your Email" name="email" id="email"  >
+                            </div>
+                            <div class="contact-form-feild">
+                                <label class="contact-form-label" for="message">Message
+                                </label>
+                                <textarea required cols="30" rows="10" class="contact-form-input"  placeholder="Enter Your Message" name="message" id="message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--theme contact__btn">SUBMIT</button>
+                        </form>
+                    </div>
+                        
+
+                    </div>
+
+                </div>
+
+            </section>
+            <footer class="main-footer">
+                <div class="footer-container">
+                    <div class="footer-upper">
+                        <div class="footer-upper-row1">
+                            <h2 class="heading-footer">
+                                <span>Social</span>
+                            </h2>
+                            <div class="footer-social">
+                                <a target="_blank" href="https://linkedin.com/">
+                                    <img class="footer__icon" src="https://d33wubrfki0l68.cloudfront.net/7f29579dde49e02480372aa49f7189c5536b0118/34b92/assets/png/linkedin-ico.png">
+                                </a>
+                                <a target="_blank" href="https://github.com/rammcodes">
+                                    <img class="footer__icon" src="https://d33wubrfki0l68.cloudfront.net/5557d5a11584d7201a38ee1a95200f57a4cc0f88/15085/assets/png/github-ico.png">
+                                </a>
+                                <a target="_blank" href="https://twitter.com/rammcodes">
+                                    <img class="footer__icon" src="https://d33wubrfki0l68.cloudfront.net/ef67339f7016cb09ba66366c1dc9145ac69f2a21/feca1/assets/png/twitter-ico.png">
+                                </a>
+                                <a target="_blank" href="https://dev.to/rammcodes">
+                                    <img class="footer__icon" src="https://d33wubrfki0l68.cloudfront.net/c7b1e51b8c75a239d68af3d42866666580f390ec/dcc7c/assets/png/blog-ico.png">
+                                </a>
+                                <a target="_blank" href="https://www.youtube.com/channel/UCIb8_J9lqtiWGMIOdQ5DVsg">
+                                    <img class="footer__icon main-footer__icon--mr-none" src="https://d33wubrfki0l68.cloudfront.net/493f1aa6da674c05bc606ba5b9e8092b881e8626/67c76/assets/png/yt-ico.png">
+                                  </a>
+
+                            </div>
+
+                        </div>
+                        <div class="footer-upper-row2">
+                            <h2 class="footer-row2-header">Ram Maheshwari</h2>
+                            <p class="footer-row2-desc">
+                                A Frontend focused Web Developer building the Frontend of Websites and Web Applications that leads to the success of the overall product
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="footer__lower">
+                        &copy; Copyright
+                        <script>document.write(new Date().getFullYear())</script>. Made by
+                        <a rel="noreferrer" target="_blank" href="https://rammaheshwari.com">Ram Maheshwari</a>
+                        <span class="chat-div">
+                            <div class="chat-btn">
+                                <div class="chat-text"> 
+                                    Chat With Me!
+                                </div>
+                               <img src="https://static.vecteezy.com/system/resources/previews/000/442/525/non_2x/vector-chat-icon.jpg"> 
+    
+                            </div>
+                        </span>
+                      </div>
+                      
+                </div>
+
+            </footer>
+
+    </body>
+</html>
